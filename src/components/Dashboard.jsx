@@ -79,7 +79,7 @@ const Dashboard = ({ onLogout }) => {
               <p className=''>votes</p>
             </div>
             <img
-              src="https://via.placeholder.com/150"
+              src={movie.poster}
               alt={`${movie.title} poster`}
               className="w-[80px] h-[100px] rounded-lg mx-2 object-cover"
             />
