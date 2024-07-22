@@ -11,7 +11,7 @@ const Login = ({ onLogin }) => {
     const storedUser = JSON.parse(localStorage.getItem('user'));
     if (storedUser && storedUser.name === username && storedUser.password === password) {
       onLogin();
-      navigate('/dashboard'); // or any other page after successful login
+      navigate('/dashboard'); 
     } else {
       alert('Invalid Credentials');
     }
