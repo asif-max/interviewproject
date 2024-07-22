@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-   
-    if (username && password) {
-      navigate('/dashboard');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const storedUser = JSON.parse(localStorage.getItem('user'));
+    if (storedUser && storedUser.name === username && storedUser.password === password) {
+      onLogin();
+      navigate('/dashboard'); // or any other page after successful login
     } else {
-      alert("Please fill all fields");
+      alert('Invalid Credentials');
     }
   };
 
