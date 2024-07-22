@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Login = ({ onLogin }) => {
+const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
@@ -10,7 +10,7 @@ const Login = ({ onLogin }) => {
     e.preventDefault();
     const storedUser = JSON.parse(localStorage.getItem('user'));
     if (storedUser && storedUser.name === username && storedUser.password === password) {
-      onLogin();
+      
       navigate('/dashboard'); 
     } else {
       alert('Invalid Credentials');
